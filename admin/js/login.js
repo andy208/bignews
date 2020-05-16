@@ -14,18 +14,23 @@ $(function () {
                     }
                 })
                 if (flag) {
-                    alert('输入的用户名或密码不能为空')
+                    $('.modal').modal('show')
+                    $('.modal-body p').text('输入的用户名或密码不能为空')
                     return false
                 }
             },
             success: function (res) {
+                $('.modal').modal('show')
+                $('.modal-body p').text(res.msg)
                 if (res.code == 200) {
-                    alert('登录成功')
-                    window.location.href = './index.html'
-                } else {
-                    alert(res.msg)
+                    //单击确定按钮，隐藏模态框之后再跳转
+                    $('.modal').on('hidden.bs.modal', function (e) {
+                        window.location.href = './index.html'
+                    })
                 }
             }
         })
     })
+    //实现模态框的显示与隐藏
+
 })
