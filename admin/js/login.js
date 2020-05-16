@@ -25,6 +25,8 @@ $(function () {
                 if (res.code == 200) {
                     //单击确定按钮，隐藏模态框之后再跳转
                     $('.modal').on('hidden.bs.modal', function (e) {
+                        //将服务器端响应回来的token字符串存到本地存储中
+                        localStorage.setItem('token', res.token)
                         window.location.href = './index.html'
                     })
                 }
