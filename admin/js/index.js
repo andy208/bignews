@@ -15,6 +15,12 @@ $(function () {
         }
     })
 
+    //退出
+    $('.logout').on('click', function () {
+        localStorage.removeItem('token')
+        window.location.href = './login.html'
+    })
+
     // var xhr = new XMLHttpRequest()
     // xhr.open('get', 'http://localhost:8080/api/v1/admin/user/info')
     // //要使用请求头将服务器端响应回来的token字符串，再次发送回服务器
